@@ -5,350 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InstaPro Solutions</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://unpkg.com/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #6f00ff;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 50px;
-            background: #0d1117;
-            color: #f1f1f1;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        header h1 {
-            font-size: 1.8rem;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #f1f1f1;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        nav a:hover {
-            color: #ff4081;
-        }
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: url('https://source.unsplash.com/1600x900/?social,marketing') no-repeat center/cover;
-            background-size: cover;
-        }
-        .hero h2 {
-            color: #f1f1f1;
-            font-size: 3rem;
-            margin-bottom: 10px;
-            animation: fadeIn 2s ease-in-out;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: #e0e0e0;
-        }
-        .hero button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            border: none;
-            background: #ff4081;
-            color: #fff;
-            font-size: 1.1rem;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-        .hero button:hover {
-            background: #ff2056;
-        }
-        .demo-accounts {
-            padding: 50px;
-            text-align: center;
-            background: #f9f9f9;
-            animation: fadeInUp 1.5s ease-out;
-        }
-        .demo-accounts h2 {
-            font-size: 2rem;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .account-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .account-card {
-            background: #fff;
-            border: 1px solid #ddd;
-            width: 300px;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
-        .account-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-        }
-        .account-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        .account-card p {
-            color: #666;
-            margin-bottom: 15px;
-        }
-        .account-card button {
-            padding: 10px 15px;
-            border: none;
-            background: #6f00ff;
-            color: #fff;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
-        }
-        .account-card button:hover {
-            background: #ff2056;
-        }
-        .account-card .bx {
-            margin-right: 10px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #0d1117;
-            color: #f1f1f1;
-        }
-
-        /* New Section Styles */
-        .faq-section, .reviews-section {
-            padding: 50px;
-            background: #f9f9f9;
-            text-align: center;
-        }
-        .faq-section h2, .reviews-section h2 {
-            font-size: 2rem;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .faq-list, .review-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-        }
-        .faq-item, .review-card {
-            background: #fff;
-            border: 1px solid #ddd;
-            width: 80%;
-            max-width: 500px;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        }
-        .faq-item h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        .faq-item p {
-            color: #666;
-        }
-        .review-card {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-        }
-        .review-card img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-        .review-card .review-details {
-            text-align: left;
-        }
-        .review-card .review-details h4 {
-            font-size: 1.2rem;
-            margin: 0;
-        }
-        .review-card .review-details p {
-            font-size: 1rem;
-            color: #666;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        /* New Section Styles */
-.features-section, .about-section, .contact-section {
-    padding: 50px;
-    background: #f9f9f9;
-    text-align: center;
-    animation: fadeInUp 1.5s ease-out;
-}
-
-/* Features Section */
-.features-list {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.feature-item {
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 20px;
-    width: 250px;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-}
-
-.feature-item i {
-    font-size: 2rem;
-    color: #ff4081;
-    margin-bottom: 15px;
-}
-
-.feature-item h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.feature-item p {
-    color: #666;
-}
-
-/* About Section */
-.about-section {
-    max-width: 800px;
-    margin: 0 auto;
-    color: #333;
-}
-
-.about-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.about-section p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #666;
-}
-
-/* Contact Section */
-.contact-section form {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.contact-section input, .contact-section textarea {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #333;
-}
-
-.contact-section button {
-    padding: 15px;
-    background: #6f00ff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1rem;
-}
-
-.contact-section button:hover {
-    background: #ff2056;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .features-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .account-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .faq-list {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-        .stats-container .stat {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .stat-number {
-            font-size: 2em;
-            font-weight: bold;
-            color: #FFF00;
-        }
-
-        .stat p {
-            margin-top: 10px;
-            color: FFFFFF;
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Yes Trusted Seller</h1>
+        <div class="logo">
+            <img src="logo.jpeg" alt="Yes Trusted Seller Logo"> <!-- Replace 'logo.png' with your actual logo -->
+            <h1>Yes Trusted Seller</h1>
+        </div>
         <nav>
             <a href="#home">Home</a>
             <a href="#features">Features</a>
@@ -360,6 +26,22 @@
         <p>Boost your business with our premium Instagram accounts</p>
         <button onclick="window.location.href='#features'">Explore Services</button>
     </section>
+    <button class="chat-toggle" onclick="toggleChat()">💬</button>
+
+    <div class="chat-container" id="chat-container">
+        <button class="close-btn" onclick="toggleChat()">×</button>
+        <div id="chat-box"></div>
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Type a message...">
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+        <div class="suggested-questions">
+            <button onclick="sendSuggestedMessage('what do you sell')">What do you sell?</button>
+            <button onclick="sendSuggestedMessage('how to buy')">How to buy?</button>
+            <button onclick="sendSuggestedMessage('payment methods')">Payment methods</button>
+            <button onclick="sendSuggestedMessage('is it safe')">Is it safe?</button>
+        </div>
+    </div>
     <section class="demo-accounts">
         <h2>Available Accounts</h2>
         <div class="account-list">
@@ -456,9 +138,7 @@
 </section>
 
 <div class="stats">
-<center>
     <h2>Our Impact</h2>
-</center>
     <div class="stats-container">
         <div class="stat">
             <div class="stat-number">200+</div>
@@ -498,12 +178,6 @@
     <p>Follow us on <a href="https://www.instagram.com/supreme.pilot?igsh=emQydTY5aXJ4dGVn" target="_blank">Instagram</a></p>
 </footer>
 
-    <script>
-        function redirectToWhatsApp(message) {
-            const phone = "+919074941605"; // Replace with your WhatsApp number
-            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-            window.location.href = url;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
