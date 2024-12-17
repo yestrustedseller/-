@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaPro Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #fafafa;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background: #0d1117;
+            color: #f1f1f1;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        header h1 {
+            font-size: 1.8rem;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #f1f1f1;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ff4081;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('https://source.unsplash.com/1600x900/?social,marketing') no-repeat center/cover;
+            background-size: cover;
+        }
+        .hero h2 {
+            color: Black;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+        }
+        .hero button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background: #ff4081;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .hero button:hover {
+            background: #ff2056;
+        }
+        .demo-accounts {
+            padding: 50px;
+            text-align: center;
+            background: #f9f9f9;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        .demo-accounts h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .account-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .account-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        .account-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+        .account-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .account-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .account-card button {
+            padding: 10px 15px;
+            border: none;
+            background: #ff4081;
+            color: #fff;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+        .account-card button:hover {
+            background: #ff2056;
+        }
+        .account-card .bx {
+            margin-right: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0d1117;
+            color: #f1f1f1;
+        }
+
+        /* New Section Styles */
+        .faq-section, .reviews-section {
+            padding: 50px;
+            background: #f9f9f9;
+            text-align: center;
+        }
+        .faq-section h2, .reviews-section h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .faq-list, .review-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+        .faq-item, .review-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            width: 80%;
+            max-width: 500px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        .faq-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .faq-item p {
+            color: #666;
+        }
+        .review-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .review-card img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .review-card .review-details {
+            text-align: left;
+        }
+        .review-card .review-details h4 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+        .review-card .review-details p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* New Section Styles */
+.features-section, .about-section, .contact-section {
+    padding: 50px;
+    background: #f9f9f9;
+    text-align: center;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+/* Features Section */
+.features-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.feature-item i {
+    font-size: 2rem;
+    color: #ff4081;
+    margin-bottom: 15px;
+}
+
+.feature-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    color: #666;
+}
+
+/* About Section */
+.about-section {
+    max-width: 800px;
+    margin: 0 auto;
+    color: #333;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Contact Section */
+.contact-section form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section input, .contact-section textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.contact-section button {
+    padding: 15px;
+    background: #ff4081;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.contact-section button:hover {
+    background: #ff2056;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .features-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .account-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .faq-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+        .stats-container .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #f39c12;
+        }
+
+        .stat p {
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Yes Trusted Seller</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
+    <section class="hero" id="home">
+        <h2>Professional Instagram Accounts for Sale</h2>
+        <p>Boost your business with our premium Instagram accounts</p>
+        <button onclick="window.location.href='#features'">Explore Services</button>
+    </section>
+    <section class="demo-accounts">
+        <h2>Available Accounts</h2>
+        <div class="account-list">
+            <div class="account-card">
+                <i class="bx bx-world"></i>
+                <h3>@travel_haven</h3>
+                <p>Followers: 12K | Niche: Travel</p>
+                <button onclick="redirectToWhatsApp('I am interested in buying @travel_haven')"><i class="bx bx-phone-call"></i> Buy Now</button>
+            </div>
+            <div class="account-card">
+                <i class="bx bx-dumbbell"></i>
+                <h3>@fitness_freaks</h3>
+                <p>Followers: 20K | Niche: Fitness</p>
+                <button onclick="redirectToWhatsApp('I am interested in buying @fitness_freaks')"><i class="bx bx-phone-call"></i> Buy Now</button>
+            </div>
+            <div class="account-card">
+                <i class="bx bx-food-menu"></i>
+                <h3>@food_delights</h3>
+                <p>Followers: 15K | Niche: Food</p>
+                <button onclick="redirectToWhatsApp('I am interested in buying @food_delights')"><i class="bx bx-phone-call"></i> Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <h3>What are Instagram demo accounts?</h3>
+                <p>These are pre-built Instagram accounts in various niches available for sale. They come with a certain number of followers and are ready to be monetized or used for business purposes.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How do I purchase an account?</h3>
+                <p>Click the 'Buy Now' button on any account card, and you will be redirected to WhatsApp to finalize the purchase.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can I get a refund?</h3>
+                <p>No, all purchases are final. However, if there's an issue with the account, please contact our support team for assistance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Reviews Section -->
+    <section class="reviews-section">
+        <h2>Client Reviews</h2>
+        <div class="review-cards">
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Client">
+                <div class="review-details">
+                    <h4>John Doe</h4>
+                    <p>"The Instagram account I purchased has helped me grow my brand significantly. Highly recommend InstaPro Solutions!"</p>
+                </div>
+            </div>
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Client">
+                <div class="review-details">
+                    <h4>Jane Smith</h4>
+                    <p>"Great service and easy to work with. I’ve already seen a lot of engagement on my new account. 10/10!"</p>
+                </div>
+            </div>
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Client">
+                <div class="review-details">
+                    <h4>Mike Johnson</h4>
+                    <p>"I’ve bought multiple accounts from InstaPro Solutions, and they’re always top-notch. The support is also fantastic."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Add the new sections below the existing content -->
+
+<!-- Features Section -->
+<section class="features-section" id="features">
+    <h2>Our Features</h2>
+    <div class="features-list">
+        <div class="feature-item">
+            <i class="bx bx-camera"></i>
+            <h3>High-Quality Accounts</h3>
+            <p>We provide premium Instagram accounts with real followers and engagement.</p>
+        </div>
+        <div class="feature-item">
+            <i class="bx bx-rocket"></i>
+            <h3>Fast Delivery</h3>
+            <p>Get your account instantly after purchasing, with no delays.</p>
+        </div>
+        <div class="feature-item">
+            <i class="bx bx-lock"></i>
+            <h3>Secure Transactions</h3>
+            <p>We ensure your transactions are 100% secure and confidential.</p>
+        </div>
+    </div>
+</section>
+
+<div class="stats">
+<center>
+    <h2>Our Impact</h2>
+</center>
+    <div class="stats-container">
+        <div class="stat">
+            <div class="stat-number">200+</div>
+            <p>Clients Served</p>
+        </div>
+        <div class="stat">
+            <div class="stat-number">500+</div>
+            <p>Projects Completed</p>
+        </div>
+        <div class="stat">
+            <div class="stat-number">5</div>
+            <p>Years of Experience</p>
+        </div>
+    </div>
+</div>
+
+<!-- About Section -->
+<section class="about-section">
+    <h2>About Us</h2>
+    <p>Yes Trusted Seller is a leading provider of Instagram accounts for business growth and digital marketing. Our platform offers high-quality, ready-to-use Instagram accounts in a variety of niches, giving you the power to boost your business's presence online quickly and effectively.</p>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/myyvbqrl" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<!-- Update Footer -->
+<footer>
+    <p>&copy; 2024 InstaPro Solutions. All Rights Reserved.</p>
+    <p>Follow us on <a href="https://www.instagram.com/supreme.pilot?igsh=emQydTY5aXJ4dGVn" target="_blank">Instagram</a></p>
+</footer>
+
+    <script>
+        function redirectToWhatsApp(message) {
+            const phone = "+919074941605"; // Replace with your WhatsApp number
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
