@@ -3,6 +3,7 @@ function redirectToWhatsApp(message) {
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     window.location.href = url;
 }
+
 function toggleChat() {
     const chatContainer = document.getElementById('chat-container');
     chatContainer.style.display = (chatContainer.style.display === 'none' || chatContainer.style.display === '') ? 'flex' : 'none';
